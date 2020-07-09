@@ -5,13 +5,9 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class PoiExcelSheet
 {
-	private static final Logger logger = LoggerFactory.getLogger(PoiExcelSheet.class);
-
 	private Sheet sheet = null;
 
 	private CellStyle defaultCellFormat = null;

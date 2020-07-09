@@ -3,14 +3,11 @@ buildscript {
         springBootVersion = '2.2.1.RELEASE'
     }
     repositories {
-        maven{
-             url 'D:/workspace_sts_other/plugin/repo'
-        }
+    	maven { url 'https://maven.aliyun.com/repository/public/' }
         jcenter()
         mavenCentral()
     }
     dependencies {
-       classpath "com.demon.plugin:plugin:1.0.0"
        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
@@ -22,25 +19,6 @@ plugins {
 	id 'eclipse'
 }
 apply plugin: 'org.springframework.boot'
-apply plugin: 'org.gradle.sample.urlverifier'   //这个依赖来自上面的com.demon.plugin:plugin:1.0.0,也可以写在上面的plugins中，就得用id version，然后最上面就不需要依赖了
-
-verification {                                  
-    url = 'https://www.sbwuff.com/'
-}
-environments {
-    dev {
-        url = 'http://localhost:8080'
-    }
-
-    staging {
-        url = 'http://staging.enterprise.com'
-    }
-
-    production {
-        url = 'http://prod.enterprise.com'
-    }
-}
-
 repositories {
 	mavenCentral()
 }
