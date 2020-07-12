@@ -47,7 +47,6 @@ public class HttpSecurityConfigDefault extends WebSecurityConfigurerAdapter
 	@Override
 	protected void configure(HttpSecurity http) throws Exception
 	{
-
 		// http.exceptionHandling().accessDeniedPage("/error/403");
 		http.csrf().disable();
 		http.authorizeRequests().expressionHandler(expressionHandler());
