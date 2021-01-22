@@ -1,5 +1,7 @@
 package com.utils;
 
+import java.math.BigDecimal;
+
 import cn.hutool.core.util.NumberUtil;
 
 public class MathUtils {
@@ -85,8 +87,22 @@ public class MathUtils {
 		return f + "";
 	}
 	
+	/***
+	 * 去掉数字后面的0
+	 * @param f
+	 * @return
+	 */
+	private static String format1(double f,int...scales)
+	{
+		f = round(f, scales);
+		BigDecimal value = new BigDecimal(f).stripTrailingZeros();
+	    return value.toPlainString();
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(round(div(10,2)));;
 		System.out.println(format(100.40));;
+		
+	    System.out.println(format1(5d));
 	}
 }
