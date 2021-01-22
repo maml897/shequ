@@ -74,8 +74,9 @@ public class MathUtils {
 	 * @param f
 	 * @return
 	 */
-	private static String format(double f)
+	private static String format(double f,int...scales)
 	{
+		f = round(f, scales);
 		int i = (int) f;
 		if (i == f)
 		{
@@ -86,5 +87,6 @@ public class MathUtils {
 	
 	public static void main(String[] args) {
 		System.out.println(round(div(10,2)));;
+		System.out.println(format(100.40));;
 	}
 }
