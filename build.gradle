@@ -35,6 +35,7 @@ dependencies {
 	implementation group: 'org.apache.poi', name: 'poi', version: '4.0.1'
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.1'
 	implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
+	compile 'cn.hutool:hutool-all:5.5.7'
 	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
