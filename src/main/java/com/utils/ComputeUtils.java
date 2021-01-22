@@ -142,12 +142,16 @@ public class ComputeUtils {
 	 * @param map 分数-数量,需要排序
 	 * @return 分数-排名
 	 */
-	public static <T> Map<Double, Integer> computeOrderFromScoreCount(Map<Double, Long> map) {
-		LinkedHashMap<Double, Long> orderedmap = map.entrySet().stream().sorted(Collections.reverseOrder(comparingByKey()))
-				.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+	public static <T> Map<Double, Integer> computeOrderFromScoreCount(Map<Double, Long> map,boolean...ordereds) {
+		boolean ordered = ordereds != null && ordereds[0];
+		if(!ordered) {
+			map = map.entrySet().stream().sorted(Collections.reverseOrder(comparingByKey()))
+					.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+		}
+		
 		Map<Double, Integer> studentIDOrder = new HashMap<>();
 		long order = 1;
-		for (Entry<Double, Long> entry : orderedmap.entrySet()) {
+		for (Entry<Double, Long> entry : map.entrySet()) {
 			studentIDOrder.put(entry.getKey(), Convert.toInt(order));
 			order = order + entry.getValue();
 		}
@@ -307,5 +311,11 @@ public class ComputeUtils {
 	public static void main(String[] args) {
 		List<Double> list = Arrays.asList(70d, 70d, 80d, 80d, 50d, 50d, 50d);
 		System.out.println(computeOrder(list));
+		
+		Map<String,String> map =new HashMap<>();
+		
+		System.out.println(map.getClass().isAssignableFrom(LinkedHashMap.class));
+		
+		System.out.println(map instanceof LinkedHashMap);
 	}
 }
