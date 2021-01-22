@@ -58,7 +58,7 @@ public class MathUtils {
 	}
 	
 	/**
-	 * 百分比展示，远数值*100，保留位数，后面加%
+	 * 百分比展示，数值*100，保留位数，后面加%
 	 * @param d
 	 * @param scales
 	 * @return
