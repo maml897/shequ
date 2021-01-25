@@ -95,14 +95,20 @@ public class MathUtils {
 	private static String format1(double f,int...scales)
 	{
 		f = round(f, scales);
-		BigDecimal value = new BigDecimal(f).stripTrailingZeros();
+		BigDecimal value = new BigDecimal(String.valueOf(f)).stripTrailingZeros();
 	    return value.toPlainString();
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(round(div(10,2)));;
-		System.out.println(format(100.40));;
+//		System.out.println(round(div(10,2)));;
+//		System.out.println(format(100.40));;
 		
-	    System.out.println(format1(5d));
+		long b=System.currentTimeMillis();
+		for(double i=1;i<1000000;i++) {
+			format1(i);
+//			format(i);
+		}
+		System.out.println(System.currentTimeMillis()-b);
+	    
 	}
 }
